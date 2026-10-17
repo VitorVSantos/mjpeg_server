@@ -9,7 +9,7 @@ CONFIG_SCHEMA = cv.Schema({
     cv.GenerateID(): cv.declare_id(MJPEGServer),
     cv.Optional(CONF_PORT, default=3333): cv.port,
     cv.Optional(CONF_FPS, default=10): cv.int_range(min=1, max=30),
-})
+}).extend(cv.COMPONENT_SCHEMA)
 
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
